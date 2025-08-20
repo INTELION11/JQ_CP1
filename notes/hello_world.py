@@ -8,4 +8,6 @@ elif answer == "Yes":
     print("follow me then")
 else:
     print("print louder please")
+   # addition is done my putting print  and then the problen i parenthesis, no quotation marks
+    print(2+2)
     #crtl alt and down or up arow to select multiple lines
