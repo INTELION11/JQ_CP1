@@ -7,10 +7,10 @@ for i in range (100):
     time.sleep(0.01)
 
 
-name= input("what is your name?").capitalize ()
+name= input("what is your name?\n").capitalize ()
 print("hello", name)
 print("welcome adventurer", name, " i need you to finish a quest for me")
-answer= input("do you want to help me?").capitalize ()
+answer= input("do you want to help me?\n").capitalize ()
 if answer == "No":
     print("too bad")
 elif answer == "Yes":
