@@ -11,3 +11,4 @@ while True:
     avarge = (total / 7)
     avarge_rounded = round(avarge,2)
     print(avarge_rounded)
+    print("k")
