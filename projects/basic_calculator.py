@@ -11,8 +11,8 @@ while True:
     expo = num1 ** num2
     print(f"{num1} + {num2} = {add}")
     print(f"{num1} - {num2} = {sub}")
-    print(f"multi")
-    print(f"div")
+    print(f"{num1} * {num2} = {multi}")
+    print(f"{num1} / {num2} = div")
     print(f"floordiv")
     print(f"mod")
     print(f"expo")
