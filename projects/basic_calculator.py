@@ -9,10 +9,14 @@ while True:
     floordiv = num1 // num2
     mod = num1 % num2
     expo = num1 ** num2
-    print(add)
-    print(sub)
-    print(add)
-    print(add)
+    print(f"add")
+    print(f"sub")
+    print(f"multi")
+    print(f"div")
+    print(f"floordiv")
+    print(f"mod")
+    print(f"expo")
+  
 
 
 # (Addition, Subtraction, Multiplication, Division, Integer Division and Modulo, and Exponents
