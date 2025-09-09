@@ -2,6 +2,7 @@
 while True:
     num1 = float(input("choose a number: "))
     num2 = float(input("Chose a second number: "))
+   
     add = num1 + num2
     sub = num1 - num2
     multi = num1 * num2
@@ -9,13 +10,14 @@ while True:
     floordiv = num1 // num2
     mod = num1 % num2
     expo = num1 ** num2
+    
     print(f"{num1} + {num2} = {add}")
     print(f"{num1} - {num2} = {sub}")
     print(f"{num1} * {num2} = {multi}")
-    print(f"{num1} / {num2} = div")
-    print(f"floordiv")
-    print(f"mod")
-    print(f"expo") 
+    print(f"{num1} / {num2} = {div}")
+    print(f"{num1} // {num2} = {floordiv:n}")
+    print(f"{num1} % {num2} = {mod}")
+    print(f"{num1} ** {num2} = {expo} or {expo:E}") 
     
   
 
