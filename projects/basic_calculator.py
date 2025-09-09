@@ -15,7 +15,8 @@ while True:
     print(f"div")
     print(f"floordiv")
     print(f"mod")
-    print(f"expo")
+    print(f"expo") 
+    
   
 
 
