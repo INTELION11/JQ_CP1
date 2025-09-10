@@ -1,0 +1,3 @@
+# JQ 1st crew Shares
+print("The crew earned a whole bunch of money on the last outing, but the captain didn't have time to divvy it all up before release everyone to port. He gave each member of the crew 50 dollars for the evening and then sat down with his first mate to properly divide the shares. The captain of the crew gets 7 shares The first mate gets 3 shares Each member of the crew then gets 1 share but the crew members have all already received $500")
+input("")

@@ -18,6 +18,7 @@ while True:
     print(f"{num1} // {num2} = {floordiv:n}")
     print(f"{num1} % {num2} = {mod}")
     print(f"{num1} ** {num2} = {expo} or {expo:E}") 
+    9
     
   
 
