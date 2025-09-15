@@ -16,6 +16,6 @@ while True:
     #prints
     print (f"{crewgain} has earned")
     print (f"there are {crewnum} crew members not including the capatin and firstmate")
-    print (f"the captain gets {captain}")
-    print (f"the first mate gets {first_mate}")
-    print (f"the crew is still owed {crew}")
+    print (f"the captain gets {captain:.2f}")
+    print (f"the first mate gets {first_mate:.2f}")
+    print (f"the crew is still owed {crew:.2f}")

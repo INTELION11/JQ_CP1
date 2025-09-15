@@ -1,5 +1,5 @@
 # JQ 1st Random Numbers Notes
-
+    
 import random
 
 name = input("what is your name? ").trip()
