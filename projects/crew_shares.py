@@ -8,8 +8,8 @@ while True:
     # maths
     divider = crewnum + 10
     shares = crewgain / divider
-    captain = shares + shares + shares + shares + shares + shares + shares
-    first_mate = shares + shares + shares
+    captain = shares * 7
+    first_mate = shares * 3
     pre_crew = shares
     crew = pre_crew - 500
 
