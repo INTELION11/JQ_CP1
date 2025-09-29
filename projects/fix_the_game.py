@@ -9,14 +9,14 @@ def start_game():
     game_over = False
     while not game_over:
         guess = float(input("Enter your guess: "))
-        #made the guess and intiger syntax error
+        #made the guess and intiger run time error
         if attempts >= max_attempts:
             print(f"Sorry, you've used all {max_attempts} attempts. The number was {number_to_guess}.")
             game_over = True
         elif guess == number_to_guess:
             print("Congratulations! You've guessed the number!")
             game_over = True
-            #changed if to elif syntax error
+            #changed if to elif rutime
         elif guess > number_to_guess:
             print("Too high! Try again.")
             attempts = attempts + 1
@@ -27,7 +27,7 @@ def start_game():
 
         else:
             print("something went wrong")
-#           Added an else statement, syntax error
+#           Added an else statement,    logic error
         continue
     print("Game Over. Thanks for playing!")
 start_game()
