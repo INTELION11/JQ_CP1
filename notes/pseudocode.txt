@@ -1,0 +1,213 @@
+# JQ 1st Pseudocode tic tac toe
+import random
+display "where playing tic tac toe"
+while no one has won
+1 is 1
+2 is 2
+3 is 3
+4 is 4
+5 is 5
+6 is 6
+7 is 7
+8 is 8
+9 is 9
+turn is player
+grid _|_|_
+     _|_|_
+      | | 
+show grid
+round is 0
+display " you are O"
+
+display select a number from the grid _1|_2|_3
+                                      _4|_5|_6
+                                       7| 8|9
+ask player to choose number in grid
+while is players turn
+if 1 is 0 and 2 is 0 and 3 is 0
+      display player has won
+      won is 0
+if 1 is 0 and 2 is 0 and 3 is 0
+      display player has won
+      won is 0
+if 4 is 0 and 5 is 0 and 6 is 0 
+      display player has won
+      won is 0
+if 7 is 0 and 8 is 0 and 9 is 0 
+      display player has won
+      won is 0
+if 1 is 0 and 4 is 0 and 7 is 0 
+      display player has won
+      won is 0
+if 2 is 0 and 5 is 0 and 8 is 0 
+      display player has won
+      won is 0
+if 3 is 0 and 6 is 0 and 9 is 0 
+      display player has won
+      won is 0
+if 1 is 0 and 5 is 0 and 9 is 0 
+      display player has won
+      won is 0
+if 3 is 0 and 5 is 0 and 7 is 0 
+      display player has won
+      won is 0
+else 
+      display " "
+
+if number is 1
+      if 1 is 1
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again 
+            continiue
+if number is 2
+      if 2 is 2
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 3 
+      if 3 is 3
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 4
+      if 4 is 4
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 5 
+      if 5 is 5
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 6 
+      if 6 is 6
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 7 
+      if 7 is 7
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 8 
+      if 8 is 8
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 9
+      if 9 is 9
+            then one = 0
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+else
+ display dont cheat
+while its computer turn
+if 1 is 0 and 2 is 0 and 3 is 0
+      display player has won
+      won is 0
+if 1 is 0 and 2 is 0 and 3 is 0
+      display player has won
+      won is 0
+if 4 is 0 and 5 is 0 and 6 is 0 
+      display player has won
+      won is 0
+if 7 is 0 and 8 is 0 and 9 is 0 
+      display player has won
+      won is 0
+if 1 is 0 and 4 is 0 and 7 is 0 
+      display player has won
+      won is 0
+if 2 is 0 and 5 is 0 and 8 is 0 
+      display player has won
+      won is 0
+if 3 is 0 and 6 is 0 and 9 is 0 
+      display player has won
+      won is 0
+if 1 is 0 and 5 is 0 and 9 is 0 
+      display player has won
+      won is 0
+if 3 is 0 and 5 is 0 and 7 is 0 
+      display player has won
+      won is 0
+ computer choice = random.randint(1,9)
+if number is 1
+      if 1 is 1
+            then one = X
+             round + 1
+             turn = computer
+      else pick again 
+            continiue
+if number is 2
+      if 2 is 2
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 3 
+      if 3 is 3
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 4
+      if 4 is 4
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 5 
+      if 5 is 5
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 6 
+      if 6 is 6
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 7 
+      if 7 is 7
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 8 
+      if 8 is 8
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
+if number is 9
+      if 9 is 9
+            then one = X
+             round + 1
+             turn = computer
+      else pick again
+            continiue
