@@ -32,3 +32,6 @@ start = sentence.index("lazy")
 length = len("lazy")
 print(sentence[start:start+length])
 print(sentence.replace(word, "swims"))
+password = "sdfgh"
+length = len(password)
+print(length)
