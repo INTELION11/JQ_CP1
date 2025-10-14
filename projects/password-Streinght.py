@@ -12,15 +12,15 @@ numbers = list("1234567890")
 #characters is list(password)
 characters = list(password)
 #loop for letter in characters
-for letter in characters:
+for i in characters:
 #    special is bool([special_character].find(letter))
-    special = bool((letter).find[special_character])
+    special = bool((i).find[special_character])
 #    num is bool([numbers].find(letter))
-    num = bool((letter).find[numbers])
+    num = bool((i).find[numbers])
 #    upperc is bool(password isupper.)
-    upperc = letter .isupper()
+    upperc = i .isupper()
 #    lowerc is bool(password islower.)
-    lowerc =  letter .islower()
+    lowerc =  i .islower()
 #    if special is true then spec_points += 1
     if special == True:
         spec_points += 1
@@ -43,13 +43,29 @@ for letter in characters:
         print(" ")
 #if special >= 1 then points += 1
 if special >= 1:
+    points += 1
+else:
+    Points = points
 #if num >= 1 then points += 1
-
+if num >= 1:
+    points += 1
+else:
+    Points = points
 #if upperc >= 1 then points += 1
-
+if upperc >= 1:
+    points += 1
+else:
+    Points = points
 #if lowerc >= 1 then points += 1
+if lowerc >= 1:
+    points += 1
+else:
+    Points = points
 #if length >= 8 then points += 1
-
+if special >= 1:
+    points += 1
+else:
+    Points = points
 
 
 #Meeting the length requirement == True: +1 point
@@ -59,13 +75,23 @@ if special >= 1:
 #Containing special characters == True: +1 point
 
 #if points == 1
+if points == 1:
+    print("password is weak \n")
 #display password is weak
 #if points == 2
+elif points == 2:
+    print("password is weak \n")
 #display password is weak
 #if points == 3
+elif points == 3:
+    print("password is medium\n")
 #display password is medium
 #if points == 4
+elif points == 4:
+    print("password is good \n")
 #display password is good
 #if points == 5
+elif points == 5:
+    print("password is strong \n")
 #display password is strong
 #else display please try again
