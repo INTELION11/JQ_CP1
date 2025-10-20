@@ -19,6 +19,18 @@ while True:
     #characters is list(password)
     characters = (password)
     #loop for letter in characters
+
+
+    for i in characters:
+        numb = i.isdigit()
+        if numb:
+            points = points + 1
+            print("Your password contains a number character! +1 point")
+            break
+        else: continue
+
+
+
     for i in characters:
     #    special is bool([special_character].find(letter))
         special = bool((i).find(special_character))
