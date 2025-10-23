@@ -33,6 +33,7 @@ while True:
             encoded_letter = encoder(letter, number)  
             encoded_message.append(encoded_letter)  
         print(encoded_message)  
+             #doit
     # take the list of numbers and moved amount from user  
         # decode each number to a letter using decoder  
         # join all decoded letters to make the message and print  

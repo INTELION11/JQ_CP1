@@ -55,7 +55,7 @@ while True:
     #Containing lowercase letters == True: +1 point  
     #Containing numbers == True: +1 point  
     #Containing special characters == True: +1 point  
-  
+    
     #if points == 1  
     if points == 1 or points == 2:  
         print("password is weak \n")  # say weak for 1 or 2  
