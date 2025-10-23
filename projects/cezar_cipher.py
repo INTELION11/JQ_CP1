@@ -49,6 +49,6 @@ while True:
         # display goodbye message  
         # program stops here  
     elif choice == "quit" or choice == "3":  
-        print("thanks for your service")  
+        print("YOUR WELCOME!! for my service")  
     else:  
         print("please try again")  
