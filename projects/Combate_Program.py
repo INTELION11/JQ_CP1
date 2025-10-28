@@ -105,4 +105,4 @@ while monster_health > 0 and health > 0:
 if health <= 0:  
     print("you have fallen in battle. try again next time!")  
 elif monster_health <= 0:  
-    print("you win! monster is defeated!")  
+    print("you win! monster is defeated, that was too easy right?!")  
