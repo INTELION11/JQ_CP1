@@ -1,3 +1,4 @@
+#JQ 1st Combate Program
 import time  
 import random  
   
