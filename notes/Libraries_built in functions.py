@@ -2,7 +2,7 @@
 import random
 import turtle as t
 colors = ["orange", "green","red","orange","purple","brown","pink","yellow"]
-
+screen = t.Screen()
 t.color(random.choice(colors))
 t.shape("turtle")
 t.speed(0)
@@ -44,12 +44,14 @@ t.color("green")
 t.speed(10)
 t.fillcolor("green")
 t.shapesize(2)
+t.title("kings man")
+screen.tracer(0)
 for x in range(1,1000):
     t.color(random.choice(colors))
-    t.forward(1 + x)
-    t.right(10)
+    t.forward (x)
+    t.right(20)
     t.color(random.choice(colors))
     t.width(20)
-
+screen.tracer(1)
 
 t.done()
