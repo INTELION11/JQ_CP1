@@ -22,12 +22,13 @@ t4.shape("turtle")
 t5.shape("turtle")
 t6.shape("turtle")
 
-
+# Make turtles have color t1.color()
 t1.color("green")
 t2.color("blue")
 t3.color("red")
 t4.color("brown")
 t5.color("orange")
+#make the line thickness bigger t1.width()
 t1.width(3)
 t2.width(3)
 t3.width(3)
@@ -35,7 +36,7 @@ t4.width(3)
 t5.width(3)
 t6.width(5)
 
-
+#set tutle locations t1.penup
 t6.speed(5)
 t1.penup()
 t1.goto(-500,50)
@@ -54,7 +55,7 @@ t5.goto(-500,250)
 t5.pendown()
 
 
-
+#create the race track using t1.forward() t1.right()
 t6.speed(.5)
 t6.penup()
 t6.goto(500,550)
@@ -98,13 +99,15 @@ t6.forward(1100)
 
 
 
-
+# for loop as long as race is true
 while race == True:
+    # turthes go forward random.randint(5,30)
     t1.forward(random.randint(5,30))
     t2.forward(random.randint(5,30))
     t3.forward(random.randint(5,30))
     t4.forward(random.randint(5,30))
     t5.forward(random.randint(5,30))
+    # If tutles make it to finish line then winner is that turtle, race is false
     if t1.pos() >= (500,50):
         print("")
         winner = "Green"
@@ -130,9 +133,10 @@ while race == True:
         winner = "Orange"
         race = False
         
+# Make turtle write who won      
 t6.write(f"The {winner} Turtle Wins!",font=("Arial",50,"normal"))
 
-
+#type wich turtle has won with winner ==
 t.done()
 if winner == "Green":
     print("Green turtle has won!")
