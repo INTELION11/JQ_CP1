@@ -1,12 +1,13 @@
 # JQ 1st Libraries And built in functions
 import random
 import turtle as t
-colors = ["orange", "green","red","orange","purple","brown","pink","yellow"]
+colors = ["orange", "green","red","orange","purple","brown","pink","yellow","blue","tan"]
 screen = t.Screen()
 t.color(random.choice(colors))
 t.shape("turtle")
 t.speed(0)
-
+scree = t.Screen()
+scree.bgcolor("black")
 t.fillcolor("blue")
 t.begin_fill()
 t.forward(250)
@@ -41,17 +42,25 @@ t.goto(100,100)
 
 t.pendown()
 t.color("green")
-t.speed(10)
+t.speed(0)
 t.fillcolor("green")
-t.shapesize(2)
+t.shapesize(.5)
 t.title("kings man")
-screen.tracer(0)
+#screen.tracer(0)
 for x in range(1,1000):
     t.color(random.choice(colors))
+    t.right(10)
     t.forward (x)
-    t.right(20)
+    t.right(80)
+    t.forward (x)
+    t.right(60)
+    t.forward (x)
+    t.right(2)
+    t.forward (10+x)
+    t.right(179)
+    t.forward (10+x)
     t.color(random.choice(colors))
     t.width(20)
-screen.tracer(1)
+#screen.tracer(1)
 
 t.done()
