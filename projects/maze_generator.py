@@ -2,7 +2,7 @@
 import turtle as t
 import random as r
 column = True
-row = True
+row = False
 s = 50
 t.Turtle()
 t.shape("turtle")
@@ -59,14 +59,14 @@ while column == True:
             t.penup()
             t.forward(50)
             t.pendown()
-        if t.xcor(0):
+        if t.xcor() == 0:
             t.right(180)
             t.forward(250)
             t.right(-90)
             t.forward(50)
             t.right(-90)
         else:
-            counter = 0
+            print("something went wrong")
 
    
 
