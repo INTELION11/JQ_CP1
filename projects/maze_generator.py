@@ -1,14 +1,16 @@
 # JQ 1st maze generator
 import turtle as t
 import random as r
+
 column = True
-row = True
+row = False
 s = 50
 t.Turtle()
 t.shape("turtle")
 t.color("white")
 screen = t.Screen()
 screen.bgcolor("black")
+screen.tracer(0)
 t.penup()
 t.goto(-500,500)
 t.forward(50)
@@ -77,8 +79,10 @@ while column == True:
             t.pendown()
             counter += 1
 t.penup()
-t.goto(-500,450)
+t.goto(-500,500)
+t.speed(0)
 t.pendown()
+row = True
    
 
 while row == True:
@@ -92,38 +96,54 @@ while row == True:
     l8 = rand_num()
     l9 = rand_num()
     l10 = rand_num()
-    grid_rows = [l1,l2,l3,l4,l5,l6,l7,l8,l9,l10]
-    for row in grid_rows:
+    grid_rows = [l1,l2,l3,l4,l5,l6,l7,l8,l9,]
+    for rows in grid_rows:
 
-        if t.xcor() >= 0:
-            t.penup()
-            t.right(180)
-            t.forward(500)
-            t.left(90)
-            t.forward(50)
-            t.left(90)
         if t.ycor() <= 0:
+            t.penup()
+            t.setheading(90)
+            t.forward(500)
+            t.setheading(0)
+            t.forward(50)
+            t.setheading(270)
+        if t.xcor() >= 0:
             row = False
-        if row == 1:
+        if rows == 1:
+            t.setheading(270)
             t.penup()
             t.forward(50)
+            if t.ycor() <= 0:
+                t.penup()
+                t.setheading(90)
+                t.forward(500)
+                t.setheading(0)
+                t.forward(50)
+                t.setheading(270)
             t.pendown()
-            t.right(-90)
+            t.setheading(0)
             t.forward(50)
             t.right(180)
             t.forward(50)
-            t.right(-90)
+            t.setheading(270)
             counter += 1
-        elif row == 2:
+        elif rows == 2:
+            t.setheading(270)
             t.penup()
             t.forward(50)
+            if t.ycor() <= 0:
+                t.penup()
+                t.setheading(90)
+                t.forward(500)
+                t.setheading(0)
+                t.forward(50)
+                t.setheading(270)
             t.pendown()
             counter += 1
 
 
 
 
-
+screen.tracer(1)
 t.done()
 
 
