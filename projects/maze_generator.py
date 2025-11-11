@@ -76,50 +76,42 @@ while column == True:
             t.forward(50)
             t.pendown()
             counter += 1
-t.penup()
-t.goto(-500,450)
-t.pendown()
-   
-
-while row == True:
-    l1 = r.randint(1,2)
-    l2 = rand_num()
-    l3 = rand_num()
-    l4 = rand_num()
-    l5 = rand_num()
-    l6 = rand_num()
-    l7 = rand_num()
-    l8 = rand_num()
-    l9 = rand_num()
-    l10 = rand_num()
-    grid_rows = [l1,l2,l3,l4,l5,l6,l7,l8,l9,l10]
-    for row in grid_rows:
-
-        if t.xcor() >= 0:
-            t.penup()
-            t.right(180)
-            t.forward(500)
-            t.left(90)
-            t.forward(50)
-            t.left(90)
-        if t.ycor() <= 0:
-            row = False
-        if row == 1:
-            t.penup()
-            t.forward(50)
-            t.pendown()
-            t.right(-90)
-            t.forward(50)
-            t.right(180)
-            t.forward(50)
-            t.right(-90)
-            counter += 1
-        elif row == 2:
-            t.penup()
-            t.forward(50)
-            t.pendown()
-            counter += 1
-
+t.penup()  
+t.goto(-500,450)  
+t.setheading(0)  
+  
+while row == True:  
+    l1 = rand_num()  
+    l2 = rand_num()  
+    l3 = rand_num()  
+    l4 = rand_num()  
+    l5 = rand_num()  
+    l6 = rand_num()  
+    l7 = rand_num()  
+    l8 = rand_num()  
+    l9 = rand_num()  
+    l10 = rand_num()  
+    grid_rows = [l1,l2,l3,l4,l5,l6,l7,l8,l9,l10]  
+    for rcell in grid_rows:  
+        if t.xcor() >= 0:  
+            t.penup()  
+            t.setheading(180)  
+            t.forward(500)  
+            t.setheading(270)  
+            t.forward(50)  
+            t.setheading(0)  
+        if t.ycor() <= -50:  
+            row = False  
+            break  
+        if rcell == 1:  
+            t.pendown()  
+            t.forward(50)  
+            t.penup()  
+            counter += 1  
+        elif rcell == 2:  
+            t.penup()  
+            t.forward(50)  
+            counter += 1  
 
 
 
