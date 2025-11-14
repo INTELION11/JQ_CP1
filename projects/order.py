@@ -3,11 +3,11 @@ meal_check = True
 drink_check = True
 Side_check = True
 def check(ordered):
-     
-     for items in ordered:
+    total = sum(ordered.values())
+    for items in ordered:
           print(f"{items} :::: {ordered[items]}")
-          total += ordered[items]
-          print(f"your total is {total}")
+         # total += order[items]
+    print(f"your total is {total}")
      
 order = {
  
