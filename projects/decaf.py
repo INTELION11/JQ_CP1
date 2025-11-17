@@ -1,0 +1,1 @@
+raise PendingDeprecationWarning("EMOTIONAL\n DAMAGE\n!!!")
