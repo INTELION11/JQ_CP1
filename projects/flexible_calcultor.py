@@ -7,8 +7,10 @@ user_num = True
 #Min
 #Product
 
-def plus(list):
-    total = sum(list)
+def plus(*list):
+    total = 0
+    for num in list:
+        float(total) += float(num)
     return total
 
 num_list = []
@@ -31,7 +33,9 @@ print(num_list)
 action = input(" would you like to calculate the\n sum\n avarage\n max\n min\n product\n").strip().lower()
 #for num in num_list:
 if action == "sum":
-    print(plus(num_list))
+    print(plus(*num_list))
+
+
 
 
 
