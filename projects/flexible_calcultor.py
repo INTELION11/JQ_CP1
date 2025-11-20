@@ -3,6 +3,7 @@
 # set up a counter (int) and a loop control flag (bool)  
 div_counter = 0    
 user_num = True    
+choicing = True
   
 # add all numbers using a loop and float conversion  
 def plus(*nums):    
@@ -54,15 +55,23 @@ print(f"Numbers entered: {', '.join(num_list)}")
 # ask user for calculation type and perform the selected function  
 action = input("Would you like to calculate the\n sum\n average\n max\n min\n product\n").strip().lower()    
   # if action is sum,avarage,max,min,product do its funtion, if not display try again
-if action == "sum":    
-    print(f"Sum: {plus(*num_list)}")    
-elif action == "average":    
-    print(f"Average: {avg(*num_list)}")    
-elif action == "max":    
-    print(f"Max: {get_max(*num_list)}")    
-elif action == "min":    
-    print(f"Min: {get_min(*num_list)}")    
-elif action == "product":    
-    print(f"Product: {mult(*num_list)}")    
-else:    
-    print("do it again.")   
+while choicing:
+    action = input("Would you like to calculate the\n sum\n average\n max\n min\n product\n").strip().lower()   
+    if action == "sum":    
+        print(f"Sum: {plus(*num_list)}")  
+        break  
+    elif action == "average":    
+        print(f"Average: {avg(*num_list)}")  
+        break  
+    elif action == "max":    
+        print(f"Max: {get_max(*num_list)}")    
+        break
+    elif action == "min":    
+        print(f"Min: {get_min(*num_list)}")    
+        break
+    elif action == "product":    
+        print(f"Product: {mult(*num_list)}")    
+        break
+    else:    
+        print("do it again.")
+        continue   
