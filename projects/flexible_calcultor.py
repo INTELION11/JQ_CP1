@@ -46,9 +46,11 @@ while user_num:
         except ValueError:    
             print("Error: Invalid input. Please enter numbers only.")    
   
-# print numbers as a formatted string  
+
+# print numbers as a good string  
 print(f"Numbers entered: {', '.join(num_list)}")    
   
+
 # ask user for calculation type and perform the selected function  
 action = input("Would you like to calculate the\n sum\n average\n max\n min\n product\n").strip().lower()    
   # if action is sum,avarage,max,min,product do its funtion, if not display try again
