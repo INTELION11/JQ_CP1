@@ -1,61 +1,66 @@
 # JQ 1st Flexible calculator  
-div_counter = 0  
-user_num = True  
   
-# Sum  
-def plus(*nums):  
-    total = 0  
-    for num in nums:  
-        total += float(num)  
-    return total  
+# set up a counter (int) and a loop control flag (bool)  
+div_counter = 0    
+user_num = True    
   
-# Average  
-def avg(*nums):  
-    if len(nums) == 0:  
-        return 0  
-    return plus(*nums) / len(nums)  
+# add all numbers using a loop and float conversion  
+def plus(*nums):    
+    total = 0    
+    for num in nums:    
+        total += float(num)    
+    return total    
   
-# Max  
-def get_max(*nums):  
-    return max(float(num) for num in nums)  
+# find average by dividing the sum by the count  
+def avg(*nums):    
+    if len(nums) == 0:    
+        return 0    
+    return plus(*nums) / len(nums)    
   
-# Min  
-def get_min(*nums):  
-    return min(float(num) for num in nums)  
+# get the largest number using max() and float conversion  
+def get_max(*nums):    
+    return max(float(num) for num in nums)    
   
-# Product  
-def mult(*nums):  
-    result = 1  
-    for num in nums:  
-        result *= float(num)  
-    return result  
+# get the smallest number using min() and float conversion  
+def get_min(*nums):    
+    return min(float(num) for num in nums)    
   
-num_list = []  
-while user_num:  
-    div_counter += 1  
-    number = input("What numbers would you like to include in this problem? When you're done, please say done\n").strip().lower()  
-    if number == "done":  
-        user_num = False  
-    else:  
-        try:  
-            float(number)  
-            num_list.append(number)  
-        except ValueError:  
-            print("Error: Invalid input. Please enter numbers only.")  
+# multiply all numbers using a loop  
+def mult(*nums):    
+    result = 1    
+    for num in nums:    
+        result *= float(num)    
+    return result    
   
-print(f"Numbers entered: {', '.join(num_list)}")  
+# collect numbers from user input and store as list  
+num_list = []    
+while user_num:    
+    div_counter += 1    
+    number = input("What numbers would you like to include in this problem? When you're done, please say done\n").strip().lower()    
+    if number == "done":    
+        user_num = False    
+    else:    
+        try:    
+            float(number)  # make sure input is a number  
+            num_list.append(number)    
+        except ValueError:    
+            print("Error: Invalid input. Please enter numbers only.")    
   
-action = input("Would you like to calculate the\n sum\n average\n max\n min\n product\n").strip().lower()  
+# print numbers as a formatted string  
+print(f"Numbers entered: {', '.join(num_list)}")    
   
-if action == "sum":  
-    print(f"Sum: {plus(*num_list)}")  
-elif action == "average":  
-    print(f"Average: {avg(*num_list)}")  
-elif action == "max":  
-    print(f"Max: {get_max(*num_list)}")  
-elif action == "min":  
-    print(f"Min: {get_min(*num_list)}")  
-elif action == "product":  
-    print(f"Product: {mult(*num_list)}")  
-else:  
-    print("Invalid action.") 
+# ask user for calculation type and perform the selected function  
+action = input("Would you like to calculate the\n sum\n average\n max\n min\n product\n").strip().lower()    
+  # if action is sum,avarage,max,min,product do its funtion, if not display try again
+if action == "sum":    
+    print(f"Sum: {plus(*num_list)}")    
+elif action == "average":    
+    print(f"Average: {avg(*num_list)}")    
+elif action == "max":    
+    print(f"Max: {get_max(*num_list)}")    
+elif action == "min":    
+    print(f"Min: {get_min(*num_list)}")    
+elif action == "product":    
+    print(f"Product: {mult(*num_list)}")    
+else:    
+    print("do it again.")   
