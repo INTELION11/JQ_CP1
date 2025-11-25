@@ -5,6 +5,7 @@ def function_factorial():
     # asking user what number they want   
     user_num = input("What number do you want? ")  
   
+  
     # checking if it's a number  
     try:  
         user_num = int(user_num)  # must be integer for factorial  
@@ -12,6 +13,7 @@ def function_factorial():
         print("Please try again")  
         return  # stop function if not a number  
   
+
     # If number is an integer  
     print("wow you got a real number")  
   
@@ -32,5 +34,6 @@ def function_factorial():
     # print factored number  
     print(f"Factorial: {factored_number}")  
   
+
 # Run the function  
 function_factorial()  
