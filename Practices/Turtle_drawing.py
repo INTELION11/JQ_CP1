@@ -3,7 +3,7 @@ def draw_brach(lenghth):
     if lenghth > 5:
         for i in range(3):
             t.forward(lenghth)
-            Draw_brach(lenghth / 3)
+            draw_brach(lenghth / 3)
             t.backward(lenghth)
             t.right(60)
 
