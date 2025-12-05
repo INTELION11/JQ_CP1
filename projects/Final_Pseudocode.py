@@ -51,14 +51,8 @@
     # #show list of shoppable items ((Bootle of XP updates player stats +2)- 1 Gold (Great sword (3d8) strength, higher chance of missing)- 1 Gold  
     # (Rapier Dexterity weapon)(1d8)- 1 Gold  (Wand ability to cast “start shooter” blinds enemy and deals 1d6 damage)- 1 Gold  (Armor +5 AC)- 2 Gold  )
 """-------------------------------------------------------------------------------------------------------------------------------"""
-#How it runs:
-#While there are still discoverable worlds
-    #   cristal_option is "do you want to go though portal 1 (random) or 2 (cronos's realm)"
-    #if you go through potal 1
-    #  option one is random between 1-8,  the number decides what world they teleport into (apart from the world they have been to, if there are none left then break)
-    # if you go thpough portal 2 go to final boss cronos's world
-"""-------------------------------------------------------------------------------------------------------------------------------"""
-# use function Final Boss if worlds 1-8 are discovered already
+
+
 # Items/ variables
 # ice ring to cast spells, -3 dex to enemy
 # slippers removes the intimidation effect from you
@@ -80,4 +74,17 @@
 # cronos teleport (teleport into cronos's realm)
 
 """-------------------------------------------------------------------------------------------------------------------------------"""
+#How it runs:
+#while universe is True
+    #While there are still discoverable worlds
+        #   cristal_option is "do you want to go though portal 1 (random) or 2 (cronos's realm)"
+        #if you go through potal 1
+        #  option one is random between 1-8,  the number decides what world they teleport into (apart from the world they have been to, if there are none left then break)
+        # if you go thpough portal 2 go to final boss cronos's world
+    # use function Final Boss if worlds 1-8 are discovered already
+    # ask user is the want to restart the game if player = dead or cronos = dead 
+    #if no then break
+    #if yes continue
 
+
+"""-------------------------------------------------------------------------------------------------------------------------------"""
