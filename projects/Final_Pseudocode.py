@@ -16,13 +16,13 @@
 # show " Cut scene " 
 # function of Desert_hammurabi
 """-------------------------------------------------------------------------------------------------------------------------------"""
-#    define desert_hamurabii,The iztec Jungla,mlɒɘЯbɘqɿɒWɘ⑁TTheWarpedrealm,Pangeon,Modern world,Cybercity 3012,Medieval Europe -(choose to fight or wait 2:30 minutes to be teleported anywhere else -modern world)  (STR #DEX  #INT #WIS #CHA, HP #inventory)
+#    define desert_hamurabii,The iztec Jungla,mlɒɘЯbɘqɿɒWɘ⑁TTheWarpedrealm,Pangeon,Modern world,Cybercity 3012,Medieval Europe -(choose to fight or wait 2:30 minutes to be teleported anywhere else -modern world)  (STR #DEX , HP #inventory)
     #   show cutscene (descriptive dialouge of the place)
     #   mon_hp = 34(example)
     #    mon_dex = 13(example)
     #   mon_weapon = body (example)
     #combat(Inventory,mon_hp,mon_dex,mon_weapon,STR #DEX, HP #inventory)- player and montser fight to death, (they can choose to use anything in their inventory)(add Weapons and armor modifiers) 
-    # (exaustion score for- desert), basic combat function created in a nother project with sligt diferenciations (multiple monsters and -4 inteligence- Cybercity 3012), 
+    # (exaustion score for- desert), basic combat function created in a nother project with sligt diferenciations (multiple monsters and -4 dexterity- Cybercity 3012), 
     # (every 2 turns, oxygen poisoning 1d4 - Pangeon)(+4 dex-TheWarpedrealm)(Intimadated(Disadvantage) and -4 STR- Modern world).to use on diferent maps
     #if monster = is dead
     #   add to inventory (meat,gold,time_cristal, ancient artifact(depends on the map))
