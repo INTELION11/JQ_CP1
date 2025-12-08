@@ -15,7 +15,7 @@ import time as t
 
 # create inventory as a list, all items you can use in hand for attack and healing get stored here  
 inventory = {}
-print("\033[37mShow a welcome message to the player, make the text color light grey  Let the player know their name is Lyte.\033[0m")
+print("# Show a welcome message to the player, make the text color light grey  Let the player know their name is Lyte ")
 # Show a welcome message to the player, make the text color light grey  
 # Let the player know their name is Lyte  
   
@@ -24,112 +24,21 @@ print("\033[37mShow a welcome message to the player, make the text color light g
 # Randomly pick the player's HP (60-70)  
 str = r.randint(1,20)
 dex = r.randint(1,20)
-hp = r.randint(60,70)
-ac = r.randint(9,11)
-# Show the player their stats 
-print(f" Your stats: \n {str}\n {dex}\n {hp}\n {ac}")
-action = input("You have one more chance to reroll, say yes if you want to reroll, say no if you don't\n")
+# Show the player their stats  
 # Ask if they want to reroll their stats: "You have one more chance to reroll, say yes if you want to reroll, say no if you don't"  
-if action == "yes":  
-    str = r.randint(1,20)
-    dex = r.randint(1,20)
-    hp = r.randint(60,70)
-    ac = r.randint(9,11)
-    # Show the player their stats 
-    print(f" Your stats: \n {str}\n {dex}\n {hp}\n {ac}")
-elif action == "no": 
-    print() 
+# If the player says yes:  
+    # Randomize STR, DEX, HP again  
+    # Show the new stats  
+# Else if the player says no:  
     # Continue with these stats  
-else:  
-    # Continue anyway 
-    print() 
+# Else:  
+    # Continue anyway  
   
-# Show a cutscene to start the story 
-print(" meets cronos, cronos throws him away")
+# Show a cutscene to start the story  
+  
 """-------------------------------------------------------------------------------------------------------------------------------"""  
-
 # Define all the worlds: Desert_hammurabi, Iztec_Jungla, Warpedrealm, Pangeon, Modern_world, Cybercity_3012, Medieval_Europe, Otzis_Tusdra  
-def desert_hammurabi(health,dexterity,stren,defense,invent):
-
-   
-    print("\033[38;5;223mcutscene describing the desert and monster appears.\033[0m")
-    monster_health = 30  
-    monster_defense = 13  
-    monster_damage = 12  
-    protect = False  
-    
-    def monster_turn(player_health, player_defense):  
-        strike = r.randint(1, 20)  
-        if strike >= player_defense:  
-            print("the monster hits you!")  
-            return r.randint(1, 12)  
-        else:  
-            print("the sand snake missed!")  
-            return 0  
-    
-    def player_turn(health, defense, attack, damage, monster_health, monster_defense, protect):  
-        print(f"your stats: \n {health} HP\n Defense: {defense}\n")  
-        action = input(f"its your turn, what is your action, {invent}\n").strip().lower()  
-        next_protect = False  
-        result = {"health": health, "defense": defense, "monster_health": monster_health, "protect": False, "flee": False}  
-        if action == "heal":  
-            heal_amt = r.randint(1, 8)  
-            result["health"] += heal_amt  
-            print(f"you healed {heal_amt} points! your health is now {result['health']} hp")  
-        elif action == "flee":  
-            chance = r.randint(1, 2)  
-            if chance == 2:  
-                print("you got away! you live to fight another day!")  
-                result["flee"] = True  
-            else:  
-                print("you did not escape")  
-        elif action == "protect":  
-            next_protect = True  
-            print("you brace yourself for the next attack!")  
-        elif action == "attack":  
-            your_attack = r.randint(1, 20) + attack  
-            print(f"you rolled a {your_attack} to hit!")  
-            if your_attack >= monster_defense:  
-                dmg = r.randint(1, damage) + 4  
-                result["monster_health"] -= dmg  
-                print(f"you hit the monster for {dmg} points! monster has {result['monster_health']} hp left")  
-            else:  
-                print("you missed!")  
-        else:  
-            print("not a valid action, try again!")  
-            return player_turn(result["health"], result["defense"], attack, damage, result["monster_health"], monster_defense, next_protect)  
-        result["protect"] = next_protect  
-        return result  
-    
-    print("Welcome to fighting! First I need to know some things about you!")    
-    turn = r.randint(1, 2)  
-    
-    while monster_health > 0 and health > 0:  
-        if turn == 1:  
-            result = player_turn(health, defense, attack, damage, monster_health, monster_defense, protect)  
-            health = result["health"]  
-            monster_health = result["monster_health"]  
-            protect = result["protect"]  
-            if result["flee"]:  
-                break  
-            turn = 2  
-        elif turn == 2:  
-            print("its the monsters turn!")  
-            t.sleep(1)  
-            temp_defense = defense  
-            if protect:  
-                temp_defense += 4  
-                print("your defense is higher this turn because you are protecting!")  
-            health -= monster_turn(health, temp_defense)  
-            print(f"you have {health} hp remaining")  
-            protect = False  
-            turn = 1  
-    
-    if health <= 0:  
-        print("you have fallen in battle. try again next time!")  
-    elif monster_health <= 0:  
-        print("you win! monster is defeated, that was too easy right?!")  
-desert_hammurabi(hp,dex,str,ac,inventory)
+  
 # For each world, do the following:  
     # Show a cutscene with a description of the place  
     # Set up the monster: example: mon_hp = 34, mon_dex = 13, mon_weapon = "body"  
