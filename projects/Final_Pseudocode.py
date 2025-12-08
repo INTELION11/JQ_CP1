@@ -1,90 +1,129 @@
-# JQ 1st Final Project pseudocode
-#Important variables: #STR(if they hit or miss an attack, added to their roll) #DEX(if they dodge an attack with the roll item and adds to AC)  #HP, action, inventory, monster stats, been_to_worlds, worlds_not_been_to,
-# import random
-#import time
-# create inventory as a list, all items that can be used in hand are stored here for atack and healing
-# (f"\033[38;2;160;160;160mWelcome adventurer, your name is lyte\033[1m") - make the text color light grey
-# randomize     #STR #DEX 1-20 and #HP 60-70
-# stat_opinion = show input "here are your stats: STR DEX HP, tyou have one more chance to re roll, say yes if you want to reroll, say no if you dont"
-# if stat_opinion == yes
-# randomize     #STR #DEX 1-20 and #HP 60-70
-    # show "here are your stats STR DEX HP""
-# elif stat_opinion == no
-    #show ""
-# else
-    #show""
-# show " Cut scene " 
-# function of Desert_hammurabi
-"""-------------------------------------------------------------------------------------------------------------------------------"""
-#    define desert_hamurabii,The iztec Jungla,mlɒɘЯbɘqɿɒWɘ⑁TTheWarpedrealm,Pangeon,Modern world,Cybercity 3012,Medieval Europe -(choose to fight or wait 2:30 minutes to be teleported anywhere else -modern world)  (STR #DEX , HP #inventory)
-    #   show cutscene (descriptive dialouge of the place)
-    #   mon_hp = 34(example)
-    #    mon_dex = 13(example)
-    #   mon_weapon = body (example)
-    #combat(Inventory,mon_hp,mon_dex,mon_weapon,STR #DEX, HP #inventory)- player and montser fight to death, (they can choose to use anything in their inventory)(add Weapons and armor modifiers) 
-    # (exaustion score for- desert), basic combat function created in a nother project with sligt diferenciations (multiple monsters and -4 dexterity- Cybercity 3012), 
-    # (every 2 turns, oxygen poisoning 1d4 - Pangeon)(+4 dex-TheWarpedrealm)(Intimadated(Disadvantage) and -4 STR- Modern world).to use on diferent maps
-    #if monster = is dead
-    #   add to inventory (meat,gold,time_cristal, ancient artifact(depends on the map))
-    #   show ( inventory updates: {inventory}
-    # open shop keeper, dialouge and show items to buy from him, exit function, made using the grocery list from another project
-    #if the player is dead loop universe to the start
-"""-------------------------------------------------------------------------------------------------------------------------------"""
-# define Final Boss
-    # cronos dialouge dialouge 
-    #combat(mon_hp,mon_dex,mon_weapon,STR #DEX, HP #inventory)- player and montser fight to death, the final boss cronos can attack 6 times as a hexaweilder, for every map that you have been to he looses one of his 6 arms, he also looses a turn
-    #if you defeat him you win, give option to restart
-    # if you loose sad dialouge, give option to restart
-"""-------------------------------------------------------------------------------------------------------------------------------"""
-# define Ötzi’s Tusdra
-    # dialouge
-    # minigame of cooking:
-    # a stop watch will start and you will have to quickly say N or Y if an item is food, based on howmany items you got on how many seconds it will get an avarage and grade you on that, if you answer incorrectly you slip and loose a point
-    # bad avarage you gain a hat with curse of binding that removes -2 charisma
-    # if medium you gain slippers removes the intimidation effect from you
-    # if good you gain (ice ring to cast spells)
-    #1D10
-"""-------------------------------------------------------------------------------------------------------------------------------"""
-# if the boss is dead use function Item shop
-    #dialouge
-    # what would you like to buy? 
-    # #show list of shoppable items ((Bootle of XP updates player stats +2)- 1 Gold (Great sword (3d8) strength, higher chance of missing)- 1 Gold  
-    # (Rapier Dexterity weapon)(1d8)- 1 Gold  (Wand ability to cast “start shooter” blinds enemy and deals 1d6 damage)- 1 Gold  (Armor +5 AC)- 2 Gold  )
-"""-------------------------------------------------------------------------------------------------------------------------------"""
-
-
-# Items/ variables
-# ice ring to cast spells, -3 dex to enemy
-# slippers removes the intimidation effect from you
-# a hat with curse of binding that removes -2 charisma
-# gold
-# ability : Gorilla warfare: strike twice becouse enemy is surprised
-# The Rapier of sacrifice ( Stab yourself stabs your enemy, stabbing your enemy stabs yourself,) (2d20)
-# Graviole wand ( permanent +2 dexterity bonus) (force attack)
-# Meat
-# intimidated spell
-# Cyber chip ( grants +2 Dexterity permanently)
-# cronos ‘s ability is to turn back one turn in time
-# Bootle of XP (updates player stats +2)
-# Great sword (3d8)( strength, higher chance of missing)
-# Rapier (Dexterity weapon)(1d8)
-# Wand ability to cast “start shooter”( blinds enemy and deals 1d6 damage)
-# Armor +5 AC 
-# sword
-# cronos teleport (teleport into cronos's realm)
-
-"""-------------------------------------------------------------------------------------------------------------------------------"""
-#How it runs:
-#while universe is True
-    #While there are still discoverable worlds
-        #   cristal_option is "do you want to go though portal 1 (random) or 2 (cronos's realm)"
-        #if you go through potal 1
-        #  option one is random between 1-8,  the number decides what world they teleport into (apart from the world they have been to, if there are none left then break)
-        # if you go thpough portal 2 go to final boss cronos's world
-    # use function Final Boss if worlds 1-8 are discovered already
-    # ask user is the want to restart the game if player = dead or cronos = dead 
-    #if no then break
-    #if yes continue
-
-
-"""-------------------------------------------------------------------------------------------------------------------------------"""
+# JQ 1st Final Project pseudocode  
+  
+# Important variables:  
+# STR (used to see if you hit or miss an attack, adds to your attack roll)  
+# DEX (used to see if you dodge an attack, adds to your Armor Class)  
+# HP (your health points)  
+# action (what the player chooses to do)  
+# inventory (a list of all the items you find and use for attacking or healing)  
+# monster stats (each monster will have its own HP, DEX, and weapon)  
+# been_to_worlds (list of worlds you have already visited)  
+# worlds_not_been_to (list of worlds you still need to visit)  
+  
+# import random (to make things random)  
+# import time (to control time for things like minigames)  
+  
+# create inventory as a list, all items you can use in hand for attack and healing get stored here  
+  
+# Show a welcome message to the player, make the text color light grey  
+# Let the player know their name is Lyte  
+  
+# Randomly pick the player's STR (1-20)  
+# Randomly pick the player's DEX (1-20)  
+# Randomly pick the player's HP (60-70)  
+  
+# Show the player their stats  
+# Ask if they want to reroll their stats: "You have one more chance to reroll, say yes if you want to reroll, say no if you don't"  
+# If the player says yes:  
+    # Randomize STR, DEX, HP again  
+    # Show the new stats  
+# Else if the player says no:  
+    # Continue with these stats  
+# Else:  
+    # Continue anyway  
+  
+# Show a cutscene to start the story  
+  
+"""-------------------------------------------------------------------------------------------------------------------------------"""  
+# Define all the worlds: Desert_hammurabi, Iztec_Jungla, Warpedrealm, Pangeon, Modern_world, Cybercity_3012, Medieval_Europe, Otzis_Tusdra  
+  
+# For each world, do the following:  
+    # Show a cutscene with a description of the place  
+    # Set up the monster: example: mon_hp = 34, mon_dex = 13, mon_weapon = "body"  
+    # Start combat: player and monster fight until one is dead  
+        # Player can use anything in their inventory (weapons, armor, etc)  
+        # Weapons and armor change how easy it is to hit or dodge  
+    # Some worlds have special rules:  
+        # Desert: lose stamina faster (exhaustion)  
+        # Cybercity: fight multiple monsters, -4 dexterity for player  
+        # Pangeon: every 2 turns, player takes oxygen poisoning damage (1d4)  
+        # Warpedrealm: +4 DEX for player  
+        # Modern world: player is intimidated (has disadvantage) and -4 STR  
+    # If the monster is dead:  
+        # Add rewards to the inventory (could be meat, gold, time_cristal, or special artifact depending on the map)  
+        # Show the updated inventory  
+        # Open the shopkeeper, show dialogue, show items to buy, exit shop  
+    # If the player is dead:  
+        # Restart the game from the beginning  
+  
+"""-------------------------------------------------------------------------------------------------------------------------------"""  
+# Define the Final Boss (Cronos)  
+    # Show Cronos's dialogue  
+    # Start combat with Cronos: he can attack 6 times at once (hexaweilder)  
+    # For every world you have been to, Cronos loses one of his arms and one attack/turn  
+    # If you defeat him, show a victory message and ask if you want to restart  
+    # If you lose, show a sad message and ask if you want to restart  
+  
+"""-------------------------------------------------------------------------------------------------------------------------------"""  
+# Define the Ötzi’s Tusdra Minigame  
+    # Show intro dialogue for the minigame  
+    # Start a stopwatch, show items one by one  
+    # Player has to quickly say Y or N if the item is food  
+    # The faster and more accurate, the better your grade/score  
+    # If you answer wrong, you slip and lose a point  
+    # If your average is bad, you get a hat with a curse (-2 charisma)  
+    # If you do medium, you get slippers (removes intimidation effect)  
+    # If you do good, you get the ice ring (lets you cast spells)  
+    # Use a 1D10 for some checks  
+  
+"""-------------------------------------------------------------------------------------------------------------------------------"""  
+# If the boss is dead, open the item shop  
+    # Show shopkeeper dialogue  
+    # Ask what you want to buy  
+    # Show list of items for sale:  
+        # Bootle of XP (updates player stats +2) - 1 Gold  
+        # Great sword (3d8, high strength, higher chance of missing) - 1 Gold  
+        # Rapier (Dexterity weapon, 1d8) - 1 Gold  
+        # Wand (can cast “start shooter”, blinds and does 1d6 damage) - 1 Gold  
+        # Armor (+5 AC) - 2 Gold  
+  
+"""-------------------------------------------------------------------------------------------------------------------------------"""  
+  
+# List of Items / Variables:  
+# ice ring (cast spells, -3 DEX to enemy)  
+# slippers (removes intimidation effect)  
+# hat with curse of binding (removes -2 charisma)  
+# gold (currency to buy stuff)  
+# ability: Gorilla warfare (strike twice because enemy is surprised)  
+# Rapier of sacrifice (hurts both you and the enemy, 2d20)  
+# Graviole wand (permanent +2 DEX, force attack)  
+# Meat (heals player)  
+# intimidated spell (gives disadvantage)  
+# Cyber chip (grants +2 DEX permanently)  
+# Cronos’s ability (turn back one turn in time)  
+# Bootle of XP (updates player stats +2)  
+# Great sword (3d8, strength, higher miss chance)  
+# Rapier (Dexterity weapon, 1d8)  
+# Wand (can cast “start shooter”, blinds enemy and 1d6 damage)  
+# Armor (+5 AC)  
+# sword  
+# cronos teleport (teleport into Cronos's realm)  
+  
+"""-------------------------------------------------------------------------------------------------------------------------------"""  
+# How it runs:  
+# While the universe/game is running:  
+    # While there are still worlds you haven't visited:  
+        # Ask the player: "Do you want to go through portal 1 (random) or portal 2 (Cronos's realm)?"  
+        # If portal 1:  
+            # Pick a random world you haven't been to yet  
+            # Go to that world and play through it  
+        # If portal 2:  
+            # Go to Cronos's world for the final boss fight  
+    # If all 8 worlds are discovered/visited:  
+        # Go to final boss fight with Cronos  
+    # After the game (if player or Cronos is dead):  
+        # Ask if player wants to restart  
+        # If no, end the game  
+        # If yes, reset everything and play again  
+  
+"""-------------------------------------------------------------------------------------------------------------------------------"""  
