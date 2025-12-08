@@ -79,6 +79,8 @@
 """-------------------------------------------------------------------------------------------------------------------------------"""  
 # If the boss is dead, open the item shop  
     # Show shopkeeper dialogue  
+    # (if all 8 rings collected) :
+#       "Strong sword (special): Deals 4d8 using STR, normal hit chance, +2 to hit Cronos ONLY – Reward for collecting all 8 rings"  
     # Ask what you want to buy  
     # Show list of items for sale:  
         # Bootle of XP (updates player stats +2) - 1 Gold  
@@ -108,6 +110,8 @@
 # Armor (+5 AC)  
 # sword  
 # cronos teleport (teleport into Cronos's realm)  
+
+    # Strong Sword (Reward for collecting all 8 rings)  Deals 4d8 damage (uses STR, normal hit chance)  When equipped, gives +2 to hit Cronos  
   
 """-------------------------------------------------------------------------------------------------------------------------------"""  
 # How it runs:  
