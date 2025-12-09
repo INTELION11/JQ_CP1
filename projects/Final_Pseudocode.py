@@ -44,6 +44,7 @@ else:
     # Continue anyway 
     print() 
   
+  
 # Show a cutscene to start the story 
 print(" meets cronos, cronos throws him away")
 """-------------------------------------------------------------------------------------------------------------------------------"""  
