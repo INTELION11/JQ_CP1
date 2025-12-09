@@ -13,6 +13,7 @@
 # been_to_worlds (list of worlds you have already visited)    
 # worlds_not_been_to (list of worlds you still need to visit)    
   
+
 # create inventory as a list, all items you can use in hand for attack and healing get stored here    
   
 # Show a welcome message to the player, make the text color light grey    
