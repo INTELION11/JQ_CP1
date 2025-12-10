@@ -71,34 +71,37 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
     def monster_turn(player_health, player_defense):  
         strike = r.randint(1, 20)  
         if strike >= player_defense:  
-            sprint("the monster hits you!")  
+            sprint("\033[38;5;223mthe monster hits you!\033[0m")  
             return r.randint(1, 12)  
         else:  
-            sprint("the sand snake missed!")  
+            sprint("\033[38;5;223mthe sand snake missed!\033[0m")  
             return 0  
     
-    def player_turn(health,dexterity,stren,defense,invent,monster_hp,monster_def,monster_dmg):  
+    def player_turn(health,stren,defense,invent,monster_hp,monster_def,monster_dmg):  
         sprint(f"your stats: \n {health} HP\n AC: {defense}\n {inventory}")  
-        action = input(f"its your turn, what is your action, heal or attack\n").strip().lower()  
-        
-        result = {"health": health,"monster_health": monster_health, }  
-        if action == "heal":  
-            heal_amt = r.randint(1, 10)  
-            result["health"] += heal_amt  
-            sprint(f"you healed {heal_amt} points! your health is now {result['health']} hp")   
-        elif action == "attack":  
-            inpat = input("")
-            your_attack = r.randint(1, 20)  
-            sprint(f"you rolled a {your_attack} to hit!")  
-            if your_attack >= monster_def:  
-                dmg = r.randint(1, damage) + 4  
-                result["monster_health"] -= dmg  
-                sprint(f"you hit the monster for {dmg} points! monster has {result['monster_health']} hp left")  
+        action = input("\033[38;5;223mits your turn, what is your action, heal or attack\n\033[0m").strip().lower()  
+        while True:
+            result = {"health": health,"monster_health": monster_health, }  
+            if action == "heal":  
+                heal_amt = r.randint(1, 10)  
+                result["health"] += heal_amt  
+                sprint(f"you healed {heal_amt} points! your health is now {result['health']} hp")   
+            elif action == "attack":  
+                inpat = input("\033[38;5;223m what weapon or item in inventory will you use?\n\033[0m").strip().lower()
+                if inpat not in invent:
+                    continue
+                your_attack = r.randint(1, 20)  
+                sprint(f"you rolled a {your_attack} to hit!")  
+                if your_attack >= monster_def:  
+                    dmg = r.randint(1, invent[inpat]) + round(stren/4)
+                    result["monster_health"] -= dmg  
+                    sprint(f"you hit the monster for {dmg} points! monster has {result['monster_health']} hp left")  
+                else:  
+                    sprint("you missed!")  
             else:  
-                sprint("you missed!")  
-        else:  
-            sprint("not a valid action, try again!")  
-            return player_turn(result["health"],result["monster_health"], monster_defense,)  
+                sprint("not a valid action, try again!")  
+                continue
+            return player_turn(result["health"],result["monster_health"], monster_defense,)
         return result  
     
     sprint("Welcome to fighting! First I need to know some things about you!")    
@@ -196,6 +199,7 @@ desert_hammurabi(hp,dex,str,ac,inventory)
 # Armor (+5 AC)  
 # sword  
 # cronos teleport (teleport into Cronos's realm)  
+#healing potions
 
     # Strong Sword (Reward for collecting all 8 rings)  Deals 4d8 damage (uses STR, normal hit chance)  When equipped, gives +2 to hit Cronos  
   
