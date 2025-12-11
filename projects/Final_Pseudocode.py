@@ -24,7 +24,7 @@ def sprint(text, delay=0.025):
 inventory = {
     "greatsword" : 12
 }
-sprint("\033[37mShow a welcome message to the player, make the text color light grey  Let the player know their name is Lyte.\033[0m")
+sprint("\033[128;128;128mShow a welcome message to the player, make the text color light grey  Let the player know their name is Lyte. ")
 # Show a welcome message to the player, make the text color light grey  
 # Let the player know their name is Lyte  
   
@@ -62,7 +62,7 @@ sprint(" meets cronos, cronos throws him away")
 def desert_hammurabi(health,dexterity,stren,defense,invent):
 
    
-    sprint("\033[38;5;223mcutscene describing the desert and monster appears.\033[0m")
+    sprint("\033[38;5;223mcutscene describing the desert and monster appears.")
     monster_health = 30  
     monster_defense = 13  
     monster_damage = 12  
@@ -71,15 +71,15 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
     def monster_turn(player_health, player_defense):  
         strike = r.randint(1, 20)  
         if strike >= player_defense:  
-            sprint("\033[38;5;223mthe monster hits you!\033[0m")  
+            sprint("\033[38;5;223mthe monster hits you! ")  
             return r.randint(1, 12)  
         else:  
-            sprint("\033[38;5;223mthe sand snake missed!\033[0m")  
+            sprint("\033[38;5;223mthe sand snake missed! ")  
             return 0  
     
     def player_turn(health,stren,defense,invent,monster_hp,monster_def,monster_dmg):  
         sprint(f"your stats: \n {health} HP\n AC: {defense}\n {inventory}")  
-        action = input("\033[38;5;223mits your turn, what is your action, heal or attack\n\033[0m").strip().lower()  
+        action = input("\033[38;5;223mits your turn, what is your action, heal or attack\n ").strip().lower()  
         while True:
             result = {"health": health,"monster_health": monster_health, }  
             if action == "heal":  
@@ -87,7 +87,7 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
                 result["health"] += heal_amt  
                 sprint(f"you healed {heal_amt} points! your health is now {result['health']} hp")   
             elif action == "attack":  
-                inpat = input("\033[38;5;223m what weapon or item in inventory will you use?\n\033[0m").strip().lower()
+                inpat = input("\033[38;5;223m what weapon or item in inventory will you use?\n ").strip().lower()
                 if inpat not in invent:
                     continue
                 your_attack = r.randint(1, 20)  
@@ -104,7 +104,7 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
             return player_turn(result["health"],result["monster_health"], monster_defense,)
         return result  
     
-    sprint("Welcome to fighting! First I need to know some things about you!")    
+     
     turn = r.randint(1, 2)  
     
     while monster_health > 0 and health > 0:  
@@ -164,6 +164,7 @@ desert_hammurabi(hp,dex,str,ac,inventory)
     # If you do medium, you get slippers (removes intimidation effect)  
     # If you do good, you get the ice ring (lets you cast spells)  
     # Use a 1D10 for some checks  
+
   
 """-------------------------------------------------------------------------------------------------------------------------------"""  
 # If the boss is dead, open the item shop  
