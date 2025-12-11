@@ -49,6 +49,12 @@ if action == "yes":
 elif action == "no": 
     print() 
     # Continue with these stats  
+elif action == "chupacabra": # Dev Secret code
+    str = 999999999999
+    dex = 999999999999
+    hp = 1
+    ac = 999999999999
+    sprint(f" Your stats: \n {str}\n {dex}\n {hp}\n {ac}")
 else:  
     # Continue anyway 
     print() 
@@ -68,20 +74,20 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
     monster_damage = 12  
     
     
-    def monster_turn(player_health, player_defense):  
+    def monster_turn(player_defense,dexterit):  
         strike = r.randint(1, 20)  
-        if strike >= player_defense:  
+        if strike >= player_defense + round(dexterit/4):  
             sprint("\033[38;5;223mthe monster hits you! ")  
             return r.randint(1, 12)  
         else:  
             sprint("\033[38;5;223mthe sand snake missed! ")  
             return 0  
     
-    def player_turn(health,stren,defense,invent,monster_hp,monster_def,monster_dmg):  
+    def player_turn(health,stren,defense,invent,monster_hp,monster_def,):  
         sprint(f"your stats: \n {health} HP\n AC: {defense}\n {inventory}")  
         action = input("\033[38;5;223mits your turn, what is your action, heal or attack\n ").strip().lower()  
         while True:
-            result = {"health": health,"monster_health": monster_health, }  
+            result = {"health": health,"monster_health": monster_hp, }  
             if action == "heal":  
                 heal_amt = r.randint(1, 10)  
                 result["health"] += heal_amt  
@@ -101,7 +107,7 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
             else:  
                 sprint("not a valid action, try again!")  
                 continue
-            return player_turn(result["health"],result["monster_health"], monster_defense,)
+            return player_turn(result["health"],result["monster_health"])
         return result  
     
      
@@ -109,7 +115,7 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
     
     while monster_health > 0 and health > 0:  
         if turn == 1:  
-            result = player_turn(health,dexterity,stren,defense,invent,monster_health,monster_defense,monster_damage)  
+            result = player_turn(health,stren,defense,invent,monster_health,monster_defense,)  
             health = result["health"]  
             monster_health = result["monster_health"]  
             turn = 2  
@@ -117,7 +123,7 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
             sprint("its the monsters turn!")  
             t.sleep(1)  
             temp_defense = defense  
-            health -= monster_turn(health, temp_defense)  
+            health -= monster_turn(temp_defense, dexterity)  
             sprint(f"you have {health} hp remaining")  
             turn = 1  
     
