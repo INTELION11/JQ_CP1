@@ -85,13 +85,15 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
     
     def player_turn(health,stren,defense,invent,monster_hp,monster_def,):  
         sprint(f"your stats: \n {health} HP\n AC: {defense}\n {inventory}")  
-        action = input("\033[38;5;223mits your turn, what is your action, heal or attack\n ").strip().lower()  
+        
         while True:
+            action = input("\033[38;5;223mits your turn, what is your action, heal or attack\n ").strip().lower()  
             result = {"health": health,"monster_health": monster_hp, }  
             if action == "heal":  
                 heal_amt = r.randint(1, 10)  
                 result["health"] += heal_amt  
-                sprint(f"you healed {heal_amt} points! your health is now {result['health']} hp")   
+                sprint(f"you healed {heal_amt} points! your health is now {result['health']} hp") 
+                return result['health'],result["monster_health"]
             elif action == "attack":  
                 inpat = input("\033[38;5;223m what weapon or item in inventory will you use?\n ").strip().lower()
                 if inpat not in invent:
@@ -101,22 +103,24 @@ def desert_hammurabi(health,dexterity,stren,defense,invent):
                 if your_attack >= monster_def:  
                     dmg = r.randint(1, invent[inpat]) + round(stren/4)
                     result["monster_health"] -= dmg  
-                    sprint(f"you hit the monster for {dmg} points! monster has {result['monster_health']} hp left")  
+                    sprint(f"you hit the monster for {dmg} points! monster has {result['monster_health']} hp left")
+                    return result["monster_health"],result['health']
                 else:  
-                    sprint("you missed!")  
+                    sprint("you missed!")
+                    result = (monster_hp,health)
+                    return result
             else:  
                 sprint("not a valid action, try again!")  
                 continue
-            return player_turn(result["health"],result["monster_health"])
-        return result  
+           
     
      
     turn = r.randint(1, 2)  
     
     while monster_health > 0 and health > 0:  
         if turn == 1:  
-            result = player_turn(health,stren,defense,invent,monster_health,monster_defense,)  
-            health = result["health"]  
+            result = player_turn(health,stren,defense,invent,monster_health,monster_defense,) 
+            health = int(result(2))
             monster_health = result["monster_health"]  
             turn = 2  
         elif turn == 2:  
