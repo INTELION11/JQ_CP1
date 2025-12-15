@@ -1,141 +1,137 @@
-# JQ 1st Final Project pseudocode  
-import random as r
-import time as t
-import sys
-def sprint(text, delay=0.025):
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        t.sleep(delay)
-    print()
-# Important variables:  
-# STR (used to see if you hit or miss an attack, adds to your attack roll)  
-# DEX (used to see if you dodge an attack, adds to your Armor Class)  
-# HP (your health points)  
-# action (what the player chooses to do)  
-# inventory (a list of all the items you find and use for attacking or healing)  
-# monster stats (each monster will have its own HP, DEX, and weapon)  
-# been_to_worlds (list of worlds you have already visited)  
-# worlds_not_been_to (list of worlds you still need to visit)  
-# import random (to make things random)  
-# import time (to control time for things like minigames)  
-
-# create inventory as a list, all items you can use in hand for attack and healing get stored here  
-inventory = {
-    "greatsword" : 12
-}
-sprint("\033[128;128;128mShow a welcome message to the player, make the text color light grey  Let the player know their name is Lyte. ")
-# Show a welcome message to the player, make the text color light grey  
-# Let the player know their name is Lyte  
+import random as r  
+import time as t  
+import sys  
   
-# Randomly pick the player's STR (1-20)  
-# Randomly pick the player's DEX (1-20)  
-# Randomly pick the player's HP (60-70)  
-str = r.randint(1,20)
-dex = r.randint(1,20)
-hp = r.randint(60,70)
-ac = r.randint(9,11)
-# Show the player their stats 
-sprint(f" Your stats: \n {str}\n {dex}\n {hp}\n {ac}")
-action = input("You have one more chance to reroll, say yes if you want to reroll, say no if you don't\n")
-# Ask if they want to reroll their stats: "You have one more chance to reroll, say yes if you want to reroll, say no if you don't"  
+def sprint(text, delay=0.025):  
+    for char in text:  
+        sys.stdout.write(char)  
+        sys.stdout.flush()  
+        t.sleep(delay)  
+    print()  
+  
+# Inventory as a dictionary (item: damage)  
+inventory = {  
+    "greatsword": 12  
+}  
+  
+# Welcome message (light grey text)  
+sprint("\033[37mWelcome, Lyte! Prepare for your journey... \033[0m")  
+  
+# Randomly assign player stats  
+player_str = r.randint(1, 20)  
+player_dex = r.randint(1, 20)  
+player_hp = r.randint(60, 70)  
+player_ac = r.randint(9, 11)  
+  
+# Show player stats  
+sprint(f"Your stats:\n  STR: {player_str}\n  DEX: {player_dex}\n  HP: {player_hp}\n  AC: {player_ac}")  
+  
+# Offer reroll  
+action = input("You have one more chance to reroll. Say yes to reroll, no to continue: ").strip().lower()  
 if action == "yes":  
-    str = r.randint(1,20)
-    dex = r.randint(1,20)
-    hp = r.randint(60,70)
-    ac = r.randint(9,11)
-    # Show the player their stats 
-    sprint(f" Your stats: \n {str}\n {dex}\n {hp}\n {ac}")
-elif action == "no": 
-    print() 
-    # Continue with these stats  
-elif action == "chupacabra": # Dev Secret code
-    str = 999999999999
-    dex = 999999999999
-    hp = 1
-    ac = 999999999999
-    sprint(f" Your stats: \n {str}\n {dex}\n {hp}\n {ac}")
-else:  
-    # Continue anyway 
-    print() 
+    player_str = r.randint(1, 20)  
+    player_dex = r.randint(1, 20)  
+    player_hp = r.randint(60, 70)  
+    player_ac = r.randint(9, 11)  
+    sprint(f"Your new stats:\n  STR: {player_str}\n  DEX: {player_dex}\n  HP: {player_hp}\n  AC: {player_ac}")  
+elif action == "chupacabra":  # Dev Secret code  
+    player_str = 999999999999  
+    player_dex = 999999999999  
+    player_hp = 1  
+    player_ac = 999999999999  
+    sprint(f"Dev mode!\n  STR: {player_str}\n  DEX: {player_dex}\n  HP: {player_hp}\n  AC: {player_ac}")  
   
-
-# Show a cutscene to start the story 
-sprint(" meets cronos, cronos throws him away")
-"""-------------------------------------------------------------------------------------------------------------------------------"""  
-
-# Define all the worlds: Desert_hammurabi, Iztec_Jungla, Warpedrealm, Pangeon, Modern_world, Cybercity_3012, Medieval_Europe, Otzis_Tusdra  
-def desert_hammurabi(health,dexterity,stren,defense,invent):
-
-   
-    sprint("\033[38;5;223mcutscene describing the desert and monster appears.")
-    monster_health = 30  
-    monster_defense = 13  
-    monster_damage = 12  
-    
-    
-    def monster_turn(player_defense,dexterit):  
-        strike = r.randint(1, 20)  
-        if strike >= player_defense + round(dexterit/4):  
-            sprint("\033[38;5;223mthe monster hits you! ")  
-            return r.randint(1, 12)  
-        else:  
-            sprint("\033[38;5;223mthe sand snake missed! ")  
-            return 0  
-    
-    def player_turn(health,stren,defense,invent,monster_hp,monster_def,):  
-        sprint(f"your stats: \n {health} HP\n AC: {defense}\n {inventory}")  
-        
-        while True:
-            action = input("\033[38;5;223mits your turn, what is your action, heal or attack\n ").strip().lower()  
-            result = {"health": health,"monster_health": monster_hp, }  
-            if action == "heal":  
-                heal_amt = r.randint(1, 10)  
-                result["health"] += heal_amt  
-                sprint(f"you healed {heal_amt} points! your health is now {result['health']} hp") 
-                return result['health'],result["monster_health"]
-            elif action == "attack":  
-                inpat = input("\033[38;5;223m what weapon or item in inventory will you use?\n ").strip().lower()
-                if inpat not in invent:
-                    continue
-                your_attack = r.randint(1, 20)  
-                sprint(f"you rolled a {your_attack} to hit!")  
-                if your_attack >= monster_def:  
-                    dmg = r.randint(1, invent[inpat]) + round(stren/4)
-                    result["monster_health"] -= dmg  
-                    sprint(f"you hit the monster for {dmg} points! monster has {result['monster_health']} hp left")
-                    return result["monster_health"],result['health']
-                else:  
-                    sprint("you missed!")
-                    result = (monster_hp,health)
-                    return result
-            else:  
-                sprint("not a valid action, try again!")  
-                continue
-           
-    
-     
-    turn = r.randint(1, 2)  
-    
-    while monster_health > 0 and health > 0:  
+# Cutscene intro  
+sprint("Lyte meets Cronos. Cronos throws him away...")  
+  
+"""----------------------------------- World Example -----------------------------------"""  
+def combat(player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion):  
+    turn = r.randint(1,2)  
+    exhaustion_penalty = player_exhaustion  # Each exhaustion = -1 to hit/damage  
+    while player_hp > 0 and monster_hp > 0:  
         if turn == 1:  
-            result = player_turn(health,stren,defense,invent,monster_health,monster_defense,) 
-            health = int(result(2))
-            monster_health = result["monster_health"]  
+            player_exhaustion += .5
+            sprint(f"\nYour stats: {player_hp} HP | AC: {player_ac} | Exhaustion: {player_exhaustion}")  
+            action = input("Do you want to 'attack' or 'heal'? ").strip().lower()  
+            sprint("Inventory: " + ", ".join(inventory.keys()))  
+            item = input("Which item do you want to use? ").strip().lower()  
+            if item not in inventory:  
+                sprint("That item is not in your inventory.")  
+                continue  
+            # Heal (if item is a healing item, not implemented in current inventory)  
+            if action == "heal" and str(inventory[item]).startswith("heal"):  
+                max_heal = int(str(inventory[item])[4:])  
+                heal_amt = r.randint(1, max_heal)  
+                player_hp += heal_amt  
+                sprint(f"You used {item}, healed {heal_amt} HP! Now at {player_hp} HP.")  
+            # Attack  
+            elif action == "attack" and type(inventory[item]) == int:  
+                to_hit = r.randint(1, 20) + player_str // 4 - exhaustion_penalty  
+                sprint(f"You rolled a {to_hit} to hit!")  
+                if to_hit >= monster_ac:  
+                    dmg = max(1, r.randint(1, inventory[item]) + player_str // 4 - exhaustion_penalty)  
+                    monster_hp -= dmg  
+                    sprint(f"You hit for {dmg} damage! Monster has {monster_hp} HP left.")  
+                else:  
+                    sprint("You missed!")  
+            else:  
+                sprint(f"You can't do that with {item}.")  
+                continue  
             turn = 2  
-        elif turn == 2:  
-            sprint("its the monsters turn!")  
+        else:  
+            sprint("Monster's turn!")  
             t.sleep(1)  
-            temp_defense = defense  
-            health -= monster_turn(temp_defense, dexterity)  
-            sprint(f"you have {health} hp remaining")  
+            to_hit = r.randint(1, 20)  
+            if to_hit >= player_ac + player_dex // 4:  
+                dmg = r.randint(1, monster_dmg)  
+                player_hp -= dmg  
+                sprint(f"The monster hits you for {dmg} damage! You now have {player_hp} HP.")  
+            else:  
+                sprint("The monster missed!")  
             turn = 1  
-    
-    if health <= 0:  
-        sprint("you have fallen in battle. try again next time!")  
-    elif monster_health <= 0:  
-        sprint("you win! monster is defeated, that was too easy right?!")  
-desert_hammurabi(hp,dex,str,ac,inventory)
+  
+    if player_hp <= 0:  
+        sprint("You have fallen in battle. Try again next time!")  
+        return 'lose', player_hp, player_str, player_dex, player_ac, player_exhaustion  
+    elif monster_hp <= 0:  
+        sprint("You win! Monster defeated!")  
+        return 'win', player_hp, player_str, player_dex, player_ac, player_exhaustion  
+
+  
+def desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion, player_meat):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears...\033[0m")  
+    monster_hp = 30  
+    monster_ac = 13  
+    monster_dmg = 12  
+    result, player_hp, player_str, player_dex, player_ac, player_exhaustion = combat(  
+        player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
+    )  
+    if result == 'win':  
+        loot = r.choice(['gold', 'meat', 'stat', 'exhaustion'])  
+        if loot == 'gold':  
+            player_gold += 1  
+            sprint("You found 1 gold coin!")  
+        elif loot == 'meat':  
+            player_meat += 1  
+            sprint("You found some meat! You can use it to heal later.")  
+        elif loot == 'stat':  
+            sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
+            stat = input("Which stat do you want to increase? ").strip().lower()  
+            if stat == 'str':  
+                player_str += 1  
+                sprint("Your STR increased by 1!")  
+            elif stat == 'dex':  
+                player_dex += 1  
+                sprint("Your DEX increased by 1!")  
+            elif stat == 'ac':  
+                player_ac += 1  
+                sprint("Your AC increased by 1!")  
+            else:  
+                sprint("Invalid choice. No stat increased.") 
+desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory)  
+  
+# Continue with the rest of your game logic here...  
+
 # For each world, do the following:  
     # Show a cutscene with a description of the place  
     # Set up the monster: example: mon_hp = 34, mon_dex = 13, mon_weapon = "body"  
