@@ -11,7 +11,9 @@ def sprint(text, delay=0.025):
   
 # Inventory as a dictionary (item: damage)  
 inventory = {  
-    "greatsword": 12  
+    "greatsword": 12,
+    "fist": 4,
+    "wotter bhottle": "heal10"
 }  
   
 # Welcome message (light grey text)  
@@ -40,14 +42,16 @@ elif action == "chupacabra":  # Dev Secret code
     player_hp = 1  
     player_ac = 999999999999  
     sprint(f"Dev mode!\n  STR: {player_str}\n  DEX: {player_dex}\n  HP: {player_hp}\n  AC: {player_ac}")  
-  
+player_gold = 0
+player_exhaustion = 0
+maximum_player_health = player_hp
 # Cutscene intro  
 sprint("Lyte meets Cronos. Cronos throws him away...")  
   
-"""----------------------------------- World Example -----------------------------------"""  
+
 def combat(player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion):  
     turn = r.randint(1,2)  
-    exhaustion_penalty = player_exhaustion  # Each exhaustion = -1 to hit/damage  
+    exhaustion_penalty = player_exhaustion 
     while player_hp > 0 and monster_hp > 0:  
         if turn == 1:  
             player_exhaustion += .5
@@ -58,13 +62,13 @@ def combat(player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac,
             if item not in inventory:  
                 sprint("That item is not in your inventory.")  
                 continue  
-            # Heal (if item is a healing item, not implemented in current inventory)  
+            
             if action == "heal" and str(inventory[item]).startswith("heal"):  
                 max_heal = int(str(inventory[item])[4:])  
                 heal_amt = r.randint(1, max_heal)  
                 player_hp += heal_amt  
                 sprint(f"You used {item}, healed {heal_amt} HP! Now at {player_hp} HP.")  
-            # Attack  
+             
             elif action == "attack" and type(inventory[item]) == int:  
                 to_hit = r.randint(1, 20) + player_str // 4 - exhaustion_penalty  
                 sprint(f"You rolled a {to_hit} to hit!")  
@@ -91,15 +95,15 @@ def combat(player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac,
             turn = 1  
   
     if player_hp <= 0:  
-        sprint("You have fallen in battle. Try again next time!")  
+        sprint("Try again next time!")  
         return 'lose', player_hp, player_str, player_dex, player_ac, player_exhaustion  
     elif monster_hp <= 0:  
         sprint("You win! Monster defeated!")  
         return 'win', player_hp, player_str, player_dex, player_ac, player_exhaustion  
 
   
-def desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion, player_meat):  
-    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears...\033[0m")  
+def desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion,maximum_player_health):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears\033[0m")  
     monster_hp = 30  
     monster_ac = 13  
     monster_dmg = 12  
@@ -107,13 +111,10 @@ def desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory, pl
         player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
     )  
     if result == 'win':  
-        loot = r.choice(['gold', 'meat', 'stat', 'exhaustion'])  
+        loot = r.choice(['gold', 'meat', 'stat',"health"])  
         if loot == 'gold':  
-            player_gold += 1  
-            sprint("You found 1 gold coin!")  
-        elif loot == 'meat':  
-            player_meat += 1  
-            sprint("You found some meat! You can use it to heal later.")  
+            player_gold += 5  
+            sprint("you found 5 gold coin!")  
         elif loot == 'stat':  
             sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
             stat = input("Which stat do you want to increase? ").strip().lower()  
@@ -128,9 +129,202 @@ def desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory, pl
                 sprint("Your AC increased by 1!")  
             else:  
                 sprint("Invalid choice. No stat increased.") 
-desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory)  
-  
-# Continue with the rest of your game logic here...  
+        elif loot == "health":
+            maximum_player_health += r.randint(1,5)
+            sprint(f"Your HP stat increased, it is now {maximum_player_health}")
+    player_hp = maximum_player_health; cristal += 1
+
+desert_hammurabi(player_hp, player_dex, player_str, player_ac, inventory,player_gold, player_exhaustion,maximum_player_health)
+def The_iztec_Jungla(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion,maximum_player_health):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears\033[0m")  
+    monster_hp = 30  
+    monster_ac = 13  
+    monster_dmg = 12  
+    result, player_hp, player_str, player_dex, player_ac, player_exhaustion = combat(  
+        player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
+    )  
+    if result == 'win':  
+        loot = r.choice(['gold', 'meat', 'stat',"health"])  
+        if loot == 'gold':  
+            player_gold += 5  
+            sprint("You found 5 gold coin!")  
+        elif loot == 'stat':  
+            sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
+            stat = input("Which stat do you want to increase? ").strip().lower()  
+            if stat == 'str':  
+                player_str += 1  
+                sprint("Your STR increased by 1!")  
+            elif stat == 'dex':  
+                player_dex += 1  
+                sprint("Your DEX increased by 1!")  
+            elif stat == 'ac':  
+                player_ac += 1  
+                sprint("Your AC increased by 1!")  
+            else:  
+                sprint("Invalid choice. No stat increased.") 
+        elif loot == "health":
+            maximum_player_health += r.randint(1-5)
+            sprint(f"Your HP stat increased, it is now {maximum_player_health}")
+    inventory["dagger"] = 10
+    player_hp = maximum_player_health; cristal += 1
+def TheWarpedrealm(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion,maximum_player_health):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears\033[0m")  
+    monster_hp = 30  
+    monster_ac = 13  
+    monster_dmg = 12  
+    result, player_hp, player_str, player_dex, player_ac, player_exhaustion = combat(  
+        player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
+    )  
+    if result == 'win':  
+        loot = r.choice(['gold', 'meat', 'stat',"health"])  
+        if loot == 'gold':  
+            player_gold += 5  
+            sprint("you found 5 gold coin!")  
+        elif loot == 'stat':  
+            sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
+            stat = input("Which stat do you want to increase? ").strip().lower()  
+            if stat == 'str':  
+                player_str += 1  
+                sprint("Your STR increased by 1!")  
+            elif stat == 'dex':  
+                player_dex += 1  
+                sprint("Your DEX increased by 1!")  
+            elif stat == 'ac':  
+                player_ac += 1  
+                sprint("Your AC increased by 1!")  
+            else:  
+                sprint("Invalid choice. No stat increased.") 
+        elif loot == "health":
+            maximum_player_health += r.randint(1-5)
+            sprint(f"Your HP stat increased, it is now {maximum_player_health}")
+    player_hp = maximum_player_health; cristal += 1
+def Pangeon(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion,maximum_player_health):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears\033[0m")  
+    monster_hp = 30  
+    monster_ac = 13  
+    monster_dmg = 12  
+    result, player_hp, player_str, player_dex, player_ac, player_exhaustion = combat(  
+        player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
+    )  
+    if result == 'win':  
+        loot = r.choice(['gold', 'meat', 'stat',"health"])  
+        if loot == 'gold':  
+            player_gold += 5  
+            sprint("you found 5 gold coin!")  
+        elif loot == 'stat':  
+            sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
+            stat = input("Which stat do you want to increase? ").strip().lower()  
+            if stat == 'str':  
+                player_str += 1  
+                sprint("Your STR increased by 1!")  
+            elif stat == 'dex':  
+                player_dex += 1  
+                sprint("Your DEX increased by 1!")  
+            elif stat == 'ac':  
+                player_ac += 1  
+                sprint("Your AC increased by 1!")  
+            else:  
+                sprint("Invalid choice. No stat increased.") 
+        elif loot == "health":
+            maximum_player_health += r.randint(1-5)
+            sprint(f"Your HP stat increased, it is now {maximum_player_health}")
+    player_hp = maximum_player_health; cristal += 1
+def Modern_world(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion,maximum_player_health):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears\033[0m")  
+    monster_hp = 30  
+    monster_ac = 13  
+    monster_dmg = 12  
+    result, player_hp, player_str, player_dex, player_ac, player_exhaustion = combat(  
+        player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
+    )  
+    if result == 'win':  
+        loot = r.choice(['gold', 'meat', 'stat',"health"])  
+        if loot == 'gold':  
+            player_gold += 5  
+            sprint("you found 5 gold coin!")  
+        elif loot == 'stat':  
+            sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
+            stat = input("Which stat do you want to increase? ").strip().lower()  
+            if stat == 'str':  
+                player_str += 1  
+                sprint("Your STR increased by 1!")  
+            elif stat == 'dex':  
+                player_dex += 1  
+                sprint("Your DEX increased by 1!")  
+            elif stat == 'ac':  
+                player_ac += 1  
+                sprint("Your AC increased by 1!")  
+            else:  
+                sprint("Invalid choice. No stat increased.") 
+        elif loot == "health":
+            maximum_player_health += r.randint(1-5)
+            sprint(f"Your HP stat increased, it is now {maximum_player_health}")
+    player_hp = maximum_player_health; cristal += 1
+def Cybercity_3012(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion,maximum_player_health):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears\033[0m")  
+    monster_hp = 30  
+    monster_ac = 13  
+    monster_dmg = 12  
+    result, player_hp, player_str, player_dex, player_ac, player_exhaustion = combat(  
+        player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
+    )  
+    if result == 'win':  
+        loot = r.choice(['gold', 'meat', 'stat',"health"])  
+        if loot == 'gold':  
+            player_gold += 5  
+            sprint("you found 5 gold coin!")  
+        elif loot == 'stat':  
+            sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
+            stat = input("Which stat do you want to increase? ").strip().lower()  
+            if stat == 'str':  
+                player_str += 1  
+                sprint("Your STR increased by 1!")  
+            elif stat == 'dex':  
+                player_dex += 1  
+                sprint("Your DEX increased by 1!")  
+            elif stat == 'ac':  
+                player_ac += 1  
+                sprint("Your AC increased by 1!")  
+            else:  
+                sprint("Invalid choice. No stat increased.") 
+        elif loot == "health":
+            maximum_player_health += r.randint(1-5)
+            sprint(f"Your HP stat increased, it is now {maximum_player_health}")
+    player_hp = maximum_player_health; cristal += 1
+def Medieval_Europe(player_hp, player_dex, player_str, player_ac, inventory, player_gold, player_exhaustion,maximum_player_health):  
+    sprint("\033[38;5;223mA hot wind blows. You stand in the desert as a monster appears\033[0m")  
+    monster_hp = 30  
+    monster_ac = 13  
+    monster_dmg = 12  
+    result, player_hp, player_str, player_dex, player_ac, player_exhaustion = combat(  
+        player_hp, player_str, player_ac, player_dex, monster_hp, monster_ac, monster_dmg, inventory, player_exhaustion  
+    )  
+    if result == 'win':  
+        loot = r.choice(['gold', 'meat', 'stat',"health"])  
+        if loot == 'gold':  
+            player_gold += 5  
+            sprint("you found 5 gold coin!")  
+        elif loot == 'stat':  
+            sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
+            stat = input("Which stat do you want to increase? ").strip().lower()  
+            if stat == 'str':  
+                player_str += 1  
+                sprint("Your STR increased by 1!")  
+            elif stat == 'dex':  
+                player_dex += 1  
+                sprint("Your DEX increased by 1!")  
+            elif stat == 'ac':  
+                player_ac += 1  
+                sprint("Your AC increased by 1!")  
+            else:  
+                sprint("Invalid choice. No stat increased.") 
+        elif loot == "health":
+            maximum_player_health += r.randint(1-5)
+            sprint(f"Your HP stat increased, it is now {maximum_player_health}")
+    player_hp = maximum_player_health; cristal += 1
+
+
+ 
 
 # For each world, do the following:  
     # Show a cutscene with a description of the place  
