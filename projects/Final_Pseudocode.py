@@ -43,9 +43,9 @@ def shop(player_gold, inventory, player_str, player_dex, player_ac):
                 continue  
             player_gold -= selected["price"]  
             if selected["effect"] == "xp":  
-                player_str += 2  
-                player_dex += 2  
-                player_ac += 2  
+                player_str += 2
+                player_dex += 2
+                player_ac += 2
                 sprint("You feel all your abilities increase!")  
             elif selected["effect"] == "greatsword":  
                 inventory["greatsword"] = 24  
@@ -398,13 +398,13 @@ def Medieval_Europe(player_hp, player_dex, player_str, player_ac, inventory, pla
             sprint("You found an ancient relic! Choose a stat to increase: STR, DEX, or AC.")  
             stat = input("Which stat do you want to increase? ").strip().lower()  
             if stat == 'str':  
-                player_str += 1  
+                player_str += 1
                 sprint("Your STR increased by 1!")  
             elif stat == 'dex':  
-                player_dex += 1  
+                player_dex += 1
                 sprint("Your DEX increased by 1!")  
             elif stat == 'ac':  
-                player_ac += 1  
+                player_ac += 1
                 sprint("Your AC increased by 1!")  
             else:  
                 sprint("Invalid choice. No stat increased.") 
